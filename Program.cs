@@ -11,6 +11,8 @@ List<Post> posts = new();
 
 app.MapGet("v1/posts", () => Results.Ok(posts));
 
+app.MapGet("", () => "Nova api");
+
 app.MapGet("v1/posts/{slug}", (string slug) => Results.Ok(posts.FirstOrDefault(x => x.Slug == slug)));
 
 app.MapPost("v1/posts", (CreatePostModel model) =>
